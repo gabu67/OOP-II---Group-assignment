@@ -1,7 +1,7 @@
 // Interface Segregation Principle Example
-package dependency_inversion;
+
+// Separate interfaces for specific capabilities
 interface Eater {
-    
     void eat();
 }
 
@@ -13,6 +13,7 @@ interface Swimmer {
     void swim();
 }
 
+// Dog only eats and swims
 class Dog implements Eater, Swimmer {
     public void eat() {
         System.out.println("Dog eats.");
@@ -23,6 +24,7 @@ class Dog implements Eater, Swimmer {
     }
 }
 
+// Bird eats and flies
 class Bird implements Eater, Flyer {
     public void eat() {
         System.out.println("Bird eats.");
@@ -33,13 +35,14 @@ class Bird implements Eater, Flyer {
     }
 }
 
+// Main class to run the example
 public class InterfaceSegregationDemo {
     public static void main(String[] args) {
-        
+        // Create objects
         Dog dog = new Dog();
         Bird bird = new Bird();
 
-        
+        // Call appropriate methods
         System.out.println("Dog's behavior:");
         dog.eat();
         dog.swim();
