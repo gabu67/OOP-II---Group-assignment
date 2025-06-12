@@ -29,7 +29,7 @@ class Car implements Vehicle {
     }
 }
 
-// Another implementation (optional, to show flexibility)
+// Another implementation
 class Bike implements Vehicle {
     public void move() {
         System.out.println("Bike riding");
