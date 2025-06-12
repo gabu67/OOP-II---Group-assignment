@@ -1,39 +1,50 @@
-interface PluggableDevice {
-    void powerOn();
-}
-// Concrete implementation 1
-class PhoneCharger implements PluggableDevice {
-    public void powerOn() {
-        System.out.println("Charging phone...");
+//Before applying DIP
+class Car {
+    void move() {
+        System.out.println("Car moving");
     }
 }
-// Concrete implementation 2
-class LaptopCharger implements PluggableDevice {
-    public void powerOn() {
-        System.out.println("Charging laptop...");
+
+class Driver {
+    Car car = new Car();
+    void drive() {
+        car.move();
     }
 }
-// High-level module that depends on abstraction
-class PowerSocket {
-    private PluggableDevice device;
 
-    public PowerSocket(PluggableDevice device) {
-        this.device = device;
-    }
+//ISSUE
+//The driver is dependant on the car class, therefore we cannot change the vehicle option to other type such as bike
 
-    public void supplyPower() {
-        device.powerOn();
+//Solution:
+
+// Abstraction
+interface Vehicle {
+    void move();
+}
+
+// Concrete implementation
+class Car implements Vehicle {
+    public void move() {
+        System.out.println("Car moving");
     }
 }
-public class PowerSocketDemo {
-    public static void main(String[] args) {
-        PluggableDevice phone = new PhoneCharger();
-        PluggableDevice laptop = new LaptopCharger();
 
-        PowerSocket socket1 = new PowerSocket(phone);
-        PowerSocket socket2 = new PowerSocket(laptop);
+// Another implementation (optional, to show flexibility)
+class Bike implements Vehicle {
+    public void move() {
+        System.out.println("Bike riding");
+    }
+}
 
-        socket1.supplyPower(); // Output: Charging phone...
-        socket2.supplyPower(); // Output: Charging laptop...
+// High-level module depends on abstraction
+class Driver {
+    private Vehicle vehicle;
+
+    public Driver(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public void drive() {
+        vehicle.move()
     }
 }
