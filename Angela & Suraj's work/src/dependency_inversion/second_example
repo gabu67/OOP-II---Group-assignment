@@ -1,0 +1,48 @@
+Before applying DIP
+class Car {
+    void move() {
+        System.out.println("Car moving");
+    }
+}
+
+class Driver {
+    Car car = new Car();
+    void drive() {
+        car.move();
+    }
+}
+
+ISSUE
+The driver is dependant on the car class, therefore we cannot change the vehicle option to other type such as bike
+
+Solution:
+
+// Abstraction
+interface Vehicle {
+    void move();
+}
+
+// Concrete implementation
+class Car implements Vehicle {
+    public void move() {
+        System.out.println("Car moving");
+    }
+}
+
+// Another implementation (optional, to show flexibility)
+class Bike implements Vehicle {
+    public void move() {
+        System.out.println("Bike riding");
+    }
+}
+
+// High-level module depends on abstraction
+class Driver {
+    private Vehicle vehicle;
+
+    public Driver(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public void drive() {
+        vehicle.move(
