@@ -1,18 +1,21 @@
 interface PluggableDevice {
     void powerOn();
 }
+
 // Concrete implementation 1
 class PhoneCharger implements PluggableDevice {
     public void powerOn() {
         System.out.println("Charging phone...");
     }
 }
+
 // Concrete implementation 2
 class LaptopCharger implements PluggableDevice {
     public void powerOn() {
         System.out.println("Charging laptop...");
     }
 }
+
 // High-level module that depends on abstraction
 class PowerSocket {
     private PluggableDevice device;
@@ -25,7 +28,8 @@ class PowerSocket {
         device.powerOn();
     }
 }
-public class PowerSocketDemo {
+
+public class DependencyInversion {
     public static void main(String[] args) {
         PluggableDevice phone = new PhoneCharger();
         PluggableDevice laptop = new LaptopCharger();
