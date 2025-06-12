@@ -1,6 +1,5 @@
 package single_responsibility;
 
-// Bad Example of Single Responsibilitiy
 class UserManager {
     private String name;
     private String email;

@@ -1,6 +1,5 @@
 package single_responsibility;
 
-// Great example of single responsibility principle in Java.
 class User {
     private String name;
     private String email;
