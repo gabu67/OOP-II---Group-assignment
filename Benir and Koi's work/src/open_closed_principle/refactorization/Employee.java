@@ -1,3 +1,5 @@
+package refactorization;
+
 abstract public class Employee {
     String name;
     Integer age;

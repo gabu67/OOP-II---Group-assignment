@@ -1,3 +1,5 @@
+package refactorization;
+
 public class Teacher extends Employee{
     public Teacher(String name, Integer age, Double Salary) {
         super(name, age, Salary);
@@ -10,6 +12,6 @@ public class Teacher extends Employee{
     }
     @Override
     void work() {
-        System.out.println("Teacher is teaching");
+        System.out.println("refactorization.Teacher is teaching");
     }
 }
