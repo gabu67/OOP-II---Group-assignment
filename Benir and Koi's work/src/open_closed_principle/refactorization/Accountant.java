@@ -1,3 +1,5 @@
+package refactorization;
+
 public class Accountant extends Employee{
 
     public Accountant(String name, Integer age, Double Salary) {
@@ -12,6 +14,6 @@ public class Accountant extends Employee{
 
     @Override
     void work() {
-        System.out.println("Accountant is filing taxes");
+        System.out.println("refactorization.Accountant is filing taxes");
     }
 }
